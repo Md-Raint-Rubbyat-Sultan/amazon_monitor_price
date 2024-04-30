@@ -1,0 +1,24 @@
+use python,
+
+read html1.html file from the children folder called html_files and parse it with beautifulsoup
+
+find_all div with class="sg-col-4-of-24 sg-col-4-of-12 s-result-item s-asin sg-col-4-of-16 AdHolder sg-col s-widget-spacing-small sg-col-4-of-20"
+
+for each div on the folling list
+
+try: find img with class="s-image" src="https://m.media-amazon.com/images/I/81bfeeVOTmL._AC_UL320_.jpg" then source=img.src
+except: source=""
+
+try: find span with class="a-price-whole" then whole_price=span.text
+except: whole_price=0
+
+try: find span with class="a-price-fraction" then fraction_price=span.text
+except: fraction_price=0
+
+try: concatinate whole_price and fraction_price with (.) then store it in variable called price
+except: price=0.00
+
+try: find span with class="a-size-base-plus a-color-base a-text-normal" then name=span.text
+except: name=""
+
+open a file called monitor price in amazon using pandas and write it as excle file
